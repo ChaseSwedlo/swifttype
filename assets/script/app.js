@@ -9,6 +9,7 @@ const button = document.querySelector('.main-button');
 const scoreText = document.querySelector('.score');
 const backgroundMusic = new Audio('./assets/media/bgmusic.mp3');
 const success = new Audio('./assets/media/success.mp3');
+const scoreObjectList = [];
 let started = false;
 let counter = 99;
 let countdown;
@@ -34,7 +35,7 @@ function createScore() {
     const options = { month: 'short', day: '2-digit', year: 'numeric' };
     const date = new Date().toLocaleDateString('en-EN', options);
     if(wordsCopy != 0)
-        percentage = Math.round((words.length / (wordsCopy.length-1)) * 10);
+        percentage = Math.floor(100 - ((wordsCopy.length / words.length) * 100));
     const scoreObj = new Score(date, score, `${percentage}%`);
     return scoreObj;
 }
@@ -61,8 +62,9 @@ function gameOver() {
     userInput.value = `Score: ${score}`;
     scoreText.style.visibility = 'hidden';
     randomWord.innerText = 'Game Over!';
-    createScore();
+    scoreObjectList.push(createScore());
     backgroundMusic.pause();
+    console.log(scoreObjectList);
 }
 
 function start() {
