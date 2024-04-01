@@ -38,6 +38,7 @@ body {
 
 .timer-box {
     width: 150px;
+    user-select: none;
 }
 
 .timer {
@@ -61,6 +62,7 @@ i {
     line-height: 1;
     padding-top: 26px;
     text-align: center;
+    user-select: none;
 }
 
 .input {
@@ -79,6 +81,7 @@ i {
     font-size: 16px;
     font-weight: 400;
     line-height: 1;
+    user-select: none;
 }
 
 .main-button {
