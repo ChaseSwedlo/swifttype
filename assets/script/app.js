@@ -20,8 +20,9 @@ success.type = 'audio/mp3';
 success.volume = 0.8;
 
 function randomArray(arr) {
+    let j = 0;
     for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+        j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     return arr;
@@ -102,17 +103,6 @@ function startGame() {
     startCountdown(3);
 }
 
-button.addEventListener('click', () => {
-    if(started) {
-        reset();
-        started = false;
-    }
-    else {
-        startGame();
-        started = true;
-    }   
-});
-
 function updateScore() {
     score++;
     scoreText.innerText = `Score: ${score}`;
@@ -137,6 +127,17 @@ function checkInput() {
         updateScore();
     }
 }
+
+button.addEventListener('click', () => {
+    if(started) {
+        reset();
+        started = false;
+    }
+    else {
+        startGame();
+        started = true;
+    }   
+});
 
 userInput.addEventListener('input', checkInput);
 userInput.addEventListener('keydown', (event) => {
