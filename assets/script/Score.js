@@ -10,9 +10,9 @@ class Score {
         this.#percentage = percentage;
     }
 
-    get() { return this.#date; }
-    get() { return this.#hits; }
-    get() { return this.#percentage }
+    get date() { return this.#date; }
+    get hits() { return this.#hits; }
+    get percentage() { return this.#percentage }
 }
 
 export default Score;
