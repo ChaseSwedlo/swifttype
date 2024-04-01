@@ -10,7 +10,7 @@ const scoreText = document.querySelector('.score');
 const backgroundMusic = new Audio('./assets/media/bgmusic.mp3');
 const success = new Audio('./assets/media/success.mp3');
 let started = false;
-let counter = 20;
+let counter = 99;
 let countdown;
 let score = 0;
 let wordsCopy = [...words];
@@ -33,7 +33,7 @@ function createScore() {
     const options = { month: 'short', day: '2-digit', year: 'numeric' };
     const date = new Date().toLocaleDateString('en-EN', options);
     if(wordsCopy != 0)
-        percentage = Math.round((words.length / wordsCopy.length) * 10);
+        percentage = Math.round((words.length / (wordsCopy.length-1)) * 10);
     const scoreObj = new Score(date, score, `${percentage}%`);
     return scoreObj;
 }
@@ -60,6 +60,7 @@ function gameOver() {
     userInput.value = `Score: ${score}`;
     scoreText.style.visibility = 'hidden';
     randomWord.innerText = 'Game Over!';
+    createScore();
     backgroundMusic.pause();
 }
 
@@ -115,12 +116,21 @@ button.addEventListener('click', () => {
 function updateScore() {
     score++;
     scoreText.innerText = `Score: ${score}`;
-    randomWord.innerText = `${wordsCopy[0]}`;
+    if(wordsCopy.length > 0)
+        randomWord.innerText = `${wordsCopy[0]}`;
+    else {
+        gameOver();
+        randomWord.innerText = 'You Win!';
+    }
 }
 
 function checkInput() {
     let val = userInput.value;
-    if(val.trim().toLowerCase() === wordsCopy[0]) {
+    if(wordsCopy.length === 0) {
+        gameOver();
+        randomWord.innerText = 'You Win!';
+    } 
+    else if(val.trim().toLowerCase() === wordsCopy[0]) {
         wordsCopy.shift();
         userInput.value = '';
         success.play();
@@ -130,7 +140,6 @@ function checkInput() {
 
 userInput.addEventListener('input', checkInput);
 userInput.addEventListener('keydown', (event) => {
-    // Prevent the default page reload on enter keypress
     if (event.keyCode === 13)
         event.preventDefault();
 });
