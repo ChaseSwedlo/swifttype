@@ -64,7 +64,6 @@ function gameOver() {
     randomWord.innerText = 'Game Over!';
     scoreObjectList.push(createScore());
     backgroundMusic.pause();
-    console.log(scoreObjectList);
 }
 
 function start() {
