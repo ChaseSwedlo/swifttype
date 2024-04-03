@@ -16,9 +16,9 @@ let countdown;
 let score = 0;
 let wordsCopy = [...words];
 backgroundMusic.type = 'audio/mp3';
-backgroundMusic.volume = 0.7;
+backgroundMusic.volume = 0.55;
 success.type = 'audio/mp3';
-success.volume = 0.8;
+success.volume = 0.63;
 
 function randomArray(arr) {
     let j = 0;
@@ -57,6 +57,8 @@ function reset() {
 }
 
 function gameOver() {
+    timer.innerText = '--';
+    button.innerText = 'Start';
     clearInterval(countdown);
     userInput.disabled = true;
     userInput.value = `Score: ${score}`;
@@ -130,14 +132,14 @@ function checkInput() {
 }
 
 button.addEventListener('click', () => {
-    if(started) {
-        reset();
-        started = false;
-    }
-    else {
+    if(!started) {
         startGame();
         started = true;
-    }   
+    }
+    else {
+        reset();
+        startGame();
+    }
 });
 
 userInput.addEventListener('input', checkInput);
