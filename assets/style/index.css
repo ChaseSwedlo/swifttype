@@ -79,7 +79,7 @@ i {
     margin: 26px 0;
     text-align: center;
     background-color: rgb(255, 255, 255);
-    border: 1px solid rgrgba(59, 107, 238, 0.452)
+    border: 1px solid rgba(59, 107, 238, 0.452)
 }
 
 .score {
@@ -151,7 +151,7 @@ li + li {
 
 .scoreboard a {
     position: absolute;
-    bottom: 60px;
+    bottom: 40px;
     left: calc(50% - 25px);
 }
 
