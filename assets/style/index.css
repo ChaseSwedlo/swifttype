@@ -4,6 +4,7 @@
     --background: rgb(20, 20, 22);
     --font-color: rgb(255, 255, 255);
     --border-radius: 6px;
+    --secondary-color: rgb(255, 255, 255);
 }
 
 .container {
@@ -65,6 +66,10 @@ i {
     user-select: none;
 }
 
+.green {
+    color: rgb(151, 240, 151);
+}
+
 .input {
     width: 250px;
     height: 42px;
@@ -92,7 +97,7 @@ i {
     height: 42px;
     font-size: 18px;
     border-radius: var(--border-radius);
-    background-color: rgb(255, 255, 255);
+    background-color: var(--secondary-color);
     transition-duration: 0.2s;
 }
 
@@ -117,6 +122,7 @@ i {
 }
 
 .scoreboard h3 {
+    color: var(--secondary-color);
     font-size: 22px;
     font-weight: 400;
     text-align: center;
@@ -126,6 +132,11 @@ i {
 
 .translatex {
     transform: translateX(440px);
+}
+
+li span {
+    font-size: 16px;
+    color: var(--secondary-color);
 }
 
 li {

@@ -11,9 +11,10 @@ const backgroundMusic = new Audio('./assets/media/bgmusic.mp3');
 const success = new Audio('./assets/media/success.mp3');
 const highScoreUl = document.querySelector('.highscores');
 const scoreBoard = document.querySelector('.scoreboard');
+userInput.value = '';
 let highScores = loadScores();
 let started = false;
-let counter = 45;
+let counter = 15;
 let countdown;
 let score = 0;
 let wordsCopy = [...words];
@@ -50,7 +51,7 @@ function reset() {
     randomWord.innerText = `SwiftType`;
     wordsCopy = [...words];
     randomArray(wordsCopy);
-    counter =15;
+    counter = 15;
     timer.innerText = '--';
     clearInterval(countdown);
     scoreText.innerText = 'Score: 0';
@@ -134,7 +135,27 @@ function checkInput() {
         success.play();
         updateScore();
     }
+    else {
+        greenLetters();
+    }
 }
+
+function greenLetters() {
+    let curWord = randomWord.innerText.toLowerCase();
+    let input = userInput.value;
+    let greenWord = '';
+    let mistakeMade = false;
+    for (let i = 0; i < curWord.length; i++) {
+        if (!mistakeMade && curWord[i] === input[i]) {
+            greenWord += `<span class="green">${curWord[i]}</span>`;
+        } 
+        else {
+            greenWord += curWord[i];
+            mistakeMade = true;
+        }
+    }
+    randomWord.innerHTML = greenWord;
+  }
 
 function sortScores() {
     highScores.sort((a, b) => {
@@ -182,9 +203,10 @@ function buildHighscores() {
     highScoreUl.innerHTML = lis;
 }
 buildHighscores();
-
 setTimeout(() => {
-    scoreBoard.classList.remove('translatex');
+    if(highScoreUl.innerHTML !== '') {
+        scoreBoard.classList.remove('translatex');
+    }
 }, 400);
 
 window.addEventListener('resize', () => {
