@@ -155,8 +155,7 @@ function greenLetters() {
         }
     }
     randomWord.innerHTML = greenWord;
-  }
-
+}
 function sortScores() {
     highScores.sort((a, b) => {
         return b.hits - a.hits;

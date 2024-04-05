@@ -110,10 +110,11 @@ i {
 }
 
 .scoreboard {
+    position: relative;
     font-family: "Roboto Mono", monospace;
     height: 100dvh;
     position: fixed;
-    width: 440px;
+    width: 400px;
     background-color: rgba(0, 0, 0, 0.342);
     top: 0;
     right: 0;
@@ -146,4 +147,29 @@ li {
 
 li + li {
     margin-top:  7px;
+}
+
+.scoreboard a {
+    position: absolute;
+    bottom: 60px;
+    left: calc(50% - 25px);
+}
+
+.scoreboard a p {
+    width: 100%;
+    text-align: center;
+}
+
+.scoreboard a p i{
+    color: var(--font-color);
+    text-align: center;
+    font-size: 44px;
+    width: 51px;
+    line-height: 1;
+    padding-left: 5px;
+    transition-duration: 0.2s;
+}
+
+.scoreboard a p i:hover {
+    color: rgba(255, 255, 255, 0.664);
 }
