@@ -13,7 +13,13 @@ const words = [
     'superman', 'library', 'unboxing', 'bookstore', 'language', 'homework',
     'fantastic', 'economy', 'interview', 'awesome', 'challenge', 'science', 'mystery',
     'famous', 'league', 'memory', 'leather', 'planet', 'software', 'update', 'yellow',
-    'keyboard', 'window'
+    'keyboard', 'window', 'moonlight', 'orchestra', 'whisper', 'volcano', 'guitar', 
+    'raindrop', 'inspiration', 'diamond', 'passion', 'illusion', 'firefly', 'ocean', 
+    'cascade', 'journey', 'laughter', 'horizon', 'exploration', 'serendipity', 'infinity', 
+    'silhouette', 'wanderlust', 'marvel', 'nostalgia', 'serenity', 'reflection', 'twilight', 
+    'harmony', 'symphony', 'paradox', 'solitude', 'essence', 'melancholy', 'melody', 
+    'vision', 'cascade', 'silence', 'whimsical', 'eternity', 'cascade', 'fragrance', 
+    'cathedral', 'cascade', 'embrace', 'butterfly', 'cascade', 'cascade', 'cascade'
 ];
 
 

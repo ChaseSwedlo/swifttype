@@ -114,7 +114,7 @@ i {
     height: 100dvh;
     position: fixed;
     width: 400px;
-    background-color: rgba(4, 27, 95, 0.452);
+    background-color: rgba(1, 13, 48, 0.452);
     top: 0;
     right: 0;
     padding: 40px 60px;
@@ -125,10 +125,10 @@ i {
     color: var(--font-color);
     letter-spacing: 4px;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
     line-height: 1;
-    margin-bottom: 38px;
+    margin-bottom: 36px;
 }
 
 .translatex {

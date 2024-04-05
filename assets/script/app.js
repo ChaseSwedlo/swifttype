@@ -142,7 +142,7 @@ function checkInput() {
 
 function greenLetters() {
     let curWord = randomWord.innerText.toLowerCase();
-    let input = userInput.value;
+    let input = userInput.value.toLowerCase();
     let greenWord = '';
     let mistakeMade = false;
     for (let i = 0; i < curWord.length; i++) {
@@ -198,7 +198,7 @@ function buildHighscores() {
             words = (words < 10) ? '0' + words : words;
             lis += `<li>
                         <span>#${i+1}</span>
-                        <span>${words} words</span>
+                        <span><span class="green">${words}</span> words</span>
                         <span>${scores[i].scoreDate}</span>
                     </li>`;
         }
