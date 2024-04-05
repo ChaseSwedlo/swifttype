@@ -4,7 +4,7 @@
     --background: rgb(20, 20, 22);
     --font-color: rgb(255, 255, 255);
     --border-radius: 6px;
-    --secondary-color: rgb(255, 255, 255);
+    --secondary-color: rgb(151, 240, 151);
 }
 
 .container {
@@ -67,7 +67,7 @@ i {
 }
 
 .green {
-    color: rgb(151, 240, 151);
+    color: var(--secondary-color);
 }
 
 .input {
@@ -79,7 +79,7 @@ i {
     margin: 26px 0;
     text-align: center;
     background-color: rgb(255, 255, 255);
-    border: 1px solid rgba(0, 0, 0, 0.218);
+    border: 1px solid rgrgba(59, 107, 238, 0.452)
 }
 
 .score {
@@ -97,7 +97,7 @@ i {
     height: 42px;
     font-size: 18px;
     border-radius: var(--border-radius);
-    background-color: var(--secondary-color);
+    background-color: var(--font-color);
     transition-duration: 0.2s;
 }
 
@@ -111,11 +111,10 @@ i {
 
 .scoreboard {
     position: relative;
-    font-family: "Roboto Mono", monospace;
     height: 100dvh;
     position: fixed;
     width: 400px;
-    background-color: rgba(0, 0, 0, 0.342);
+    background-color: rgba(4, 27, 95, 0.452);
     top: 0;
     right: 0;
     padding: 40px 60px;
@@ -123,8 +122,9 @@ i {
 }
 
 .scoreboard h3 {
-    color: var(--secondary-color);
-    font-size: 22px;
+    color: var(--font-color);
+    letter-spacing: 4px;
+    font-size: 20px;
     font-weight: 400;
     text-align: center;
     line-height: 1;
@@ -136,8 +136,8 @@ i {
 }
 
 li span {
+    font-family: "Roboto Mono", monospace;
     font-size: 16px;
-    color: var(--secondary-color);
 }
 
 li {
@@ -161,7 +161,7 @@ li + li {
 }
 
 .scoreboard a p i{
-    color: var(--font-color);
+    color: rgb(151, 240, 151);
     text-align: center;
     font-size: 44px;
     width: 51px;
@@ -171,5 +171,5 @@ li + li {
 }
 
 .scoreboard a p i:hover {
-    color: rgba(255, 255, 255, 0.664);
+    color: rgba(148, 245, 148, 0.664);
 }

@@ -165,9 +165,13 @@ function sortScores() {
 function addScore() {
     const options = { month: 'short', day: '2-digit', year: 'numeric' };
     const date = new Date().toLocaleDateString('en-EN', options);
+    let percentage = 100;
+    if(wordsCopy != 0)
+        percentage = Math.floor(100 - ((wordsCopy.length / words.length) * 100));
     const scoreObj = {
         hits: score,
-        scoreDate: date
+        scoreDate: date,
+        perc: percentage
     }
     highScores.push(scoreObj);
     sortScores();
@@ -202,6 +206,7 @@ function buildHighscores() {
     highScoreUl.innerHTML = lis;
 }
 buildHighscores();
+
 setTimeout(() => {
     if(highScoreUl.innerHTML !== '') {
         scoreBoard.classList.remove('translatex');
@@ -211,6 +216,7 @@ setTimeout(() => {
 window.addEventListener('resize', () => {
     scoreBoard.classList.add('translatex');
 });
+
 button.addEventListener('click', () => {
     scoreBoard.classList.add('translatex');
     if(!started) {
