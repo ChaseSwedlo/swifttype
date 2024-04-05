@@ -112,7 +112,8 @@ i {
     background-color: rgba(0, 0, 0, 0.342);
     top: 0;
     right: 0;
-    padding: 40px 40px;
+    padding: 40px 60px;
+    transition-duration: 0.6s;
 }
 
 .scoreboard h3 {

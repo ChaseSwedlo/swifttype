@@ -10,6 +10,7 @@ const scoreText = document.querySelector('.score');
 const backgroundMusic = new Audio('./assets/media/bgmusic.mp3');
 const success = new Audio('./assets/media/success.mp3');
 const highScoreUl = document.querySelector('.highscores');
+const scoreBoard = document.querySelector('.scoreboard');
 let highScores = loadScores();
 let started = false;
 let counter = 45;
@@ -68,6 +69,7 @@ function gameOver() {
     addScore();
     loadScores();
     buildHighscores();
+    scoreBoard.classList.remove('translatex');
     backgroundMusic.pause();
 }
 
@@ -181,7 +183,15 @@ function buildHighscores() {
 }
 buildHighscores();
 
+setTimeout(() => {
+    scoreBoard.classList.remove('translatex');
+}, 400);
+
+window.addEventListener('resize', () => {
+    scoreBoard.classList.add('translatex');
+});
 button.addEventListener('click', () => {
+    scoreBoard.classList.add('translatex');
     if(!started) {
         startGame();
         started = true;
