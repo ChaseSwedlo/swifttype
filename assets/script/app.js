@@ -9,9 +9,10 @@ const button = document.querySelector('.main-button');
 const scoreText = document.querySelector('.score');
 const backgroundMusic = new Audio('./assets/media/bgmusic.mp3');
 const success = new Audio('./assets/media/success.mp3');
-const scoreObjectList = [];
+const highScoreUl = document.querySelector('.highscores');
+let highScores = loadScores();
 let started = false;
-let counter = 99;
+let counter = 45;
 let countdown;
 let score = 0;
 let wordsCopy = [...words];
@@ -48,7 +49,7 @@ function reset() {
     randomWord.innerText = `SwiftType`;
     wordsCopy = [...words];
     randomArray(wordsCopy);
-    counter = 99;
+    counter =15;
     timer.innerText = '--';
     clearInterval(countdown);
     scoreText.innerText = 'Score: 0';
@@ -64,7 +65,9 @@ function gameOver() {
     userInput.value = `Score: ${score}`;
     scoreText.style.visibility = 'hidden';
     randomWord.innerText = 'Game Over!';
-    scoreObjectList.push(createScore());
+    addScore();
+    loadScores();
+    buildHighscores();
     backgroundMusic.pause();
 }
 
@@ -130,6 +133,53 @@ function checkInput() {
         updateScore();
     }
 }
+
+function sortScores() {
+    highScores.sort((a, b) => {
+        return b.hits - a.hits;
+    });
+}
+
+function addScore() {
+    const options = { month: 'short', day: '2-digit', year: 'numeric' };
+    const date = new Date().toLocaleDateString('en-EN', options);
+    const scoreObj = {
+        hits: score,
+        scoreDate: date
+    }
+    highScores.push(scoreObj);
+    sortScores();
+    if(highScores.length > 9) {
+        highScores.splice(9);
+    }
+    localStorage.setItem('scores', JSON.stringify(highScores));
+}
+
+function loadScores() {
+    let scoresArray = [];
+    if(localStorage.getItem('scores') != null) {
+        scoresArray = JSON.parse(localStorage.getItem('scores'));
+    }
+    return scoresArray;
+}
+
+function buildHighscores() {
+    let lis = '';
+    const scores = loadScores();
+    if(scores.length > 0) {
+        for(let i=0; i<scores.length; i++) {
+            let words = scores[i].hits;
+            words = (words < 10) ? '0' + words : words;
+            lis += `<li>
+                        <span>#${i+1}</span>
+                        <span>${words} words</span>
+                        <span>${scores[i].scoreDate}</span>
+                    </li>`;
+        }
+    }
+    highScoreUl.innerHTML = lis;
+}
+buildHighscores();
 
 button.addEventListener('click', () => {
     if(!started) {

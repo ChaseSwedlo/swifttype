@@ -103,3 +103,35 @@ i {
 .main-button:active {
     background-color: rgb(188, 191, 242);
 }
+
+.scoreboard {
+    font-family: "Roboto Mono", monospace;
+    height: 100dvh;
+    position: fixed;
+    width: 440px;
+    background-color: rgba(0, 0, 0, 0.342);
+    top: 0;
+    right: 0;
+    padding: 40px 40px;
+}
+
+.scoreboard h3 {
+    font-size: 22px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 38px;
+}
+
+.translatex {
+    transform: translateX(440px);
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+}
+
+li + li {
+    margin-top:  7px;
+}
