@@ -14,7 +14,7 @@ const scoreBoard = document.querySelector('.scoreboard');
 userInput.value = '';
 let highScores = loadScores();
 let started = false;
-let counter = 15;
+let counter = 60;
 let countdown;
 let score = 0;
 let wordsCopy = [...words];
@@ -51,7 +51,7 @@ function reset() {
     randomWord.innerText = `SwiftType`;
     wordsCopy = [...words];
     randomArray(wordsCopy);
-    counter = 15;
+    counter = 60;
     timer.innerText = '--';
     clearInterval(countdown);
     scoreText.innerText = 'Score: 0';

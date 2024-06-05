@@ -1,2 +1,2 @@
 ## SwiftType
-Test your typing skills in our fast-paced game! Players have just 99 seconds to enter as many words as possible. Race against the clock and challenge yourself to beat your high score! Try it out [here](https://chaseswedlo.github.io/swifttype/)
+Test your typing skills in our fast-paced game! Players have just 60 seconds to enter as many words as possible. Race against the clock and challenge yourself to beat your high score! Try it out [here](https://chaseswedlo.github.io/swifttype/)
